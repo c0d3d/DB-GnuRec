@@ -1,0 +1,11 @@
+#!/usr/bin/env perl
+
+use DB::GnuRec;
+
+my $handle = DB::GnuRec->new();
+my $fname = "./t/example.db";
+open my $f, "<", $fname;
+$handle->load_file($f, $fname);
+close $f;
+
+print ($handle->rec_db_size(), "\n");
